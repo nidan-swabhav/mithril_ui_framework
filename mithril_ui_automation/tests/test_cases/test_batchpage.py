@@ -1,6 +1,10 @@
+"""
+Tests for Batch Page
+"""
+import time
 import pytest
 
-
+# pylint: disable=line-too-long
 @pytest.mark.Salesperson
 @pytest.mark.parametrize("user_email, user_password, expected_role,expected_url",[
     ("nidan@swabhavtechlabs.com", "Dummy@123", "SalesPerson","https://tsm-uat.swabhavtechlabs.com/talent/matrix"),
@@ -36,9 +40,9 @@ def test_sales_login(select_dropdown_option,login_page,user_email,user_password,
     batch_page.navigate_to_batch()
     # batch_page.add_batch_btn()
 
-    batch_page.click_add_batch_btn()
+    batch_page.click_add_new_batch_btn()
 
-    batch_page.input_batch_name("Batch1")
+    batch_page.input_batch_name("Auto5")
 
     input_value = 5
     batch_page.input_intake(input_value)
@@ -46,8 +50,18 @@ def test_sales_login(select_dropdown_option,login_page,user_email,user_password,
     batch_page.verify_intake(input_value)
 
     course_name = "Amazon Web Services"  # Replace with the actual course name from the dropdown
-    batch_page.select_course_from_dropdown(course_name)
-    batch_page.verify_course_selection(course_name)
+    batch_page.select_course(course_name)
+    # batch_page.verify_course_selection(course_name)
 
     salesperson = "Nidan Sales"
     batch_page.select_salesperson(salesperson)
+    batch_page.verify_salesperson(salesperson)
+
+    batch_page.select_batch_status("Upcoming")
+
+    batch_page.select_batch_type("B2B")
+    batch_page.input_and_select_requirement("MICSOFT001")
+
+    batch_page.click_add_batch_btn()
+
+    time.sleep(10)
