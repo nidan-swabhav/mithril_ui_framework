@@ -10,6 +10,7 @@ from pages.login import LoginPage
 from pages.bd_page import BusinessDev
 from pages.training_page import TrainingPage
 from pages.dashboard_page import DashboardPage
+from pages.batch_page import BatchPage
 # pylint: disable=line-too-long
 
 @pytest.fixture(scope="function")
@@ -51,3 +52,7 @@ def training_page(driver):
 @pytest.fixture
 def dashboard_page(driver):
     return DashboardPage(driver)
+
+@pytest.fixture
+def batch_page(driver):
+    return BatchPage(driver)

@@ -1,6 +1,4 @@
 """Tests for Training functionality"""
-
-
 from pages.training_page import TrainingPage
 # pylint: disable=line-too-long
 

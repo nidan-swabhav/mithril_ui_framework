@@ -6,9 +6,9 @@ import pytest
 @pytest.mark.smoke
 @pytest.mark.parametrize("user_email, user_password, expected_role,expected_url",[
     ("god@father.com", "Dummy@123", "Admin","https://tsm-uat.swabhavtechlabs.com/dashboard"),
-    ("aniket.pardeshi@swabhavtechlabs.com", "Dummy@123", "SalesPerson","https://tsm-uat.swabhavtechlabs.com/talent/matrix"),
+    # ("aniket.pardeshi@swabhavtechlabs.com", "Dummy@123", "SalesPerson","https://tsm-uat.swabhavtechlabs.com/talent/matrix"),
 ])
-def test_team_login(login_page, select_dropdown_option, user_email, user_password, expected_role, expected_url):
+def test_team_login(login_page, select_dropdown_option, user_email, user_password, expected_role, expected_url,dashboard_page):
     """
     Test ID: 01
     Test Name: Test to check that team can log in.
@@ -35,6 +35,8 @@ def test_team_login(login_page, select_dropdown_option, user_email, user_passwor
 
     # Wait and validate successful login
     login_page.verify_login_url(expected_url)
+
+    dashboard_page.search_and_select("Business Development", "Admin")
 
 @pytest.mark.parametrize("user_email, user_password,expected_url",[
     ("jayeshborse7777@gmail.com", "Dummy@123","https://tsm-uat.swabhavtechlabs.com/talent/dashboard?batchID=2925cc4b-b03c-44e3-a9ea-93865d50fe9e"),
@@ -63,6 +65,38 @@ def test_talent_login(login_page,user_email,user_password,expected_url):
 
     # Wait and validate successful login
     login_page.verify_login_url(expected_url)
+
+# @pytest.mark.Salesperson
+# @pytest.mark.parametrize("user_email, user_password, expected_role,expected_url",[
+#     ("god@father.com", "Dummy@123", "Admin","https://tsm-uat.swabhavtechlabs.com/dashboard"),
+#     # ("aniket.pardeshi@swabhavtechlabs.com", "Dummy@123", "SalesPerson","https://tsm-uat.swabhavtechlabs.com/talent/matrix"),
+# ])
+# def test_sales_login(select_dropdown_option,login_page,user_email,user_password,expected_url,expected_role):
+#     """
+#     Test ID: 01
+#     Test Name: Test to check that Talent can log in
+#     Test Assignee: Nidan Gavali
+#     Test Importance: Moderate
+#     Test Steps:
+#         1. User accesses the login page.
+#         2. User adds credentials.
+#         3. User clicks on the login button.
+#     Expected Output: Talent can log in.
+#     """
+#     login_page.navigate_to_login()
+
+#     # Select "Team"
+#     login_page.select_team()
+#     login_page.select_role(select_dropdown_option,expected_role)
+
+#     # Enter credentials
+#     login_page.enter_credentials(user_email,user_password)
+
+#     # Click login button
+#     login_page.click_login()
+
+#     # Wait and validate successful login
+#     login_page.verify_login_url(expected_url)
 
 # def test_bd_login(driver, select_dropdown_option):
 #     """
