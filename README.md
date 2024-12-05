@@ -73,7 +73,7 @@ The Mithril UI Automation Framework leverages:
   |     │   ├── batch_page.py       # Batch Page logic
   |     │   ├── bd_page.py          # BD Page logic
   |     │   ├── dashboard_page.py   # Dashboard Page logic
-  │     ├── dropdowns.json      # Dropdown data for multiple pages
+  │     |   ├── dropdowns.json      # Dropdown data for multiple pages
   |     │   ├── login.py            # Login Page logic
   |     │   └── training_page.py    # Training Page logic
   |     ├── test_cases/             # Test scripts
