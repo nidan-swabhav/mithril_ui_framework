@@ -11,6 +11,7 @@ from pages.bd_page import BusinessDev
 from pages.training_page import TrainingPage
 from pages.dashboard_page import DashboardPage
 from pages.batch_page import BatchPage
+from pages.requirement_page import RequirementsPage
 # pylint: disable=line-too-long
 
 @pytest.fixture(scope="function")
@@ -56,3 +57,8 @@ def dashboard_page(driver):
 @pytest.fixture
 def batch_page(driver):
     return BatchPage(driver)
+
+@pytest.fixture
+def requirements_page(driver):
+    return RequirementsPage(driver)
+

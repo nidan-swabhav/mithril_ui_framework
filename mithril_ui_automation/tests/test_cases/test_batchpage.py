@@ -42,7 +42,7 @@ def test_sales_login(select_dropdown_option,login_page,user_email,user_password,
 
     batch_page.click_add_new_batch_btn()
 
-    batch_page.input_batch_name("Auto5")
+    batch_page.input_batch_name("Auto6")
 
     input_value = 5
     batch_page.input_intake(input_value)
